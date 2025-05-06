@@ -24,10 +24,10 @@ export default NuxtAuthHandler({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        console.log(
-          "Authorize function called with credentials: ",
-          credentials
-        );
+        // console.log(
+        //   "Authorize function called with credentials: ",
+        //   credentials
+        // );
 
         if (!credentials?.email || !credentials?.password) {
           console.error("Missing email or password in credentials");
