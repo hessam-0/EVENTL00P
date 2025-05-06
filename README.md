@@ -67,7 +67,7 @@ Follow these steps to set up and run the project locally:
 **1. Prerequisites:**
 
 - [Node.js](https://nodejs.org/) (LTS version recommended, e.g., v18 or v20)
-- [npm](https://docs.npmjs.com/cli/v7/commands/npm-install) (Node Package Manager)
+- [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)
 - [Git](https://git-scm.com/)
 - A local [PostgreSQL](https://www.postgresql.org/download/) server instance.
 
@@ -84,12 +84,6 @@ Using npm:
 
 ```bash
 npm install
-```
-
-Alternatively, using pnpm (if preferred, ensure it's installed):
-
-```bash
-pnpm install
 ```
 
 **4. Environment Variables:**
@@ -168,7 +162,3 @@ Regular users can register new accounts through the registration page. The seed 
 - **Visual Enhancements:** Incorporate illustrations (e.g., from [Storyset](https://storyset.com/)) to improve visual appeal.
 - **Event Comments/Discussion:** Add functionality for users to comment on events.
 - **Enhanced "Interest" Feature:** Develop more backend functionality around expressing interest in events, potentially for notifications or recommendations.
-
-```
-
-```
