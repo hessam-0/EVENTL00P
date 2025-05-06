@@ -10,7 +10,7 @@ async function main() {
 
   // --- Define Staff User Seed Data ---
   const staffEmail = "admin@eventloop.com";
-  const staffPassword = "password123"; // Use a secure password in reality
+  const staffPassword = "password123";
 
   console.log(`Hashing password for staff user: ${staffEmail}...`);
   const staffHashedPassword = await bcrypt.hash(staffPassword, saltRounds);
@@ -37,7 +37,7 @@ async function main() {
 
   // --- Define Regular User Seed Data ---
   const regularUserEmail = "user@example.com";
-  const regularUserPassword = "password456"; // Use a secure password in reality
+  const regularUserPassword = "password456";
 
   console.log(`Hashing password for regular user: ${regularUserEmail}...`);
   const regularUserHashedPassword = await bcrypt.hash(

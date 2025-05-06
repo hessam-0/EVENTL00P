@@ -14,23 +14,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// === Our Application Models ===
 
 model User {
-  id            String    @id @default(cuid()) // Using CUID for IDs is common with Prisma
+  id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
   emailVerified DateTime?
-  passwordHash  String?                      // For Credentials provider
-  image         String?                      // Often needed by auth providers/UI
+  passwordHash  String?
+  image         String?
   role          String
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  // Relations needed by Prisma Adapter & our app
+
   accounts Account[]
   sessions Session[]
-  events   Event[]   // Staff can create multiple events
+  events   Event[]
   eventSignUps EventSignUp[]
 }
 
@@ -38,7 +37,7 @@ model Event {
   id          String    @id @default(cuid())
   title       String
   description String?
-  startTime   DateTime // Use DateTime for TIMESTAMPTZ equivalent in Prisma/Postgres
+  startTime   DateTime
   endTime     DateTime?
   location    String?
   createdAt   DateTime  @default(now())
@@ -49,7 +48,6 @@ model Event {
   creatorId     String // Foreign key
   creator       User    @relation(fields: [creatorId], references: [id], onDelete: Cascade) // Define the relation
 
-  // Future relation (commented out for now):
   signups     EventSignUp[]
 }
 model EventSignUp {
@@ -64,12 +62,10 @@ model EventSignUp {
 
   @@unique([eventId, userId])
 }
-// === Auth.js Models (Adapted for Staff) ===
-// See: https://authjs.dev/reference/adapter/prisma
 
 model Account {
   id                String  @id @default(cuid())
-  userId            String  // Renamed from original schema to match our Staff model ID type
+  userId            String
   type              String
   provider          String
   providerAccountId String
@@ -90,15 +86,12 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String   // Renamed from original schema to match our Staff model ID type
+  userId       String
   expires      DateTime
 
   // Relation back to Staff
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
-
-// We are using our 'Staff' model instead of a generic 'User' model
-// The adapter needs to map fields correctly.
 
 model VerificationToken {
   identifier String
