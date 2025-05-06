@@ -1,0 +1,99 @@
+/* assets/css/main.css */
+
+/* Ensure Tailwind directives are first */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* @import "@nuxt/ui"; */
+/* @import "tailwindcss"; */
+
+/* --- Base HTML Element Styles Start --- */
+
+/* Apply border-box sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  /* Let Nuxt UI handle default background/foreground for light/dark modes */
+  font-family: theme("fontFamily.sans"); /* Use configured sans-serif stack */
+  line-height: 1.6; /* Improved readability */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Headings --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: theme("spacing.6"); /* Example: 1.5rem */
+  margin-bottom: theme("spacing.3"); /* Example: 0.75rem */
+  font-weight: theme("fontWeight.semibold");
+  line-height: 1.3;
+  /* Remove color: inherit; Let components or utilities define color */
+}
+
+h1 {
+  font-size: theme("fontSize.3xl"); /* Example: 1.875rem */
+  font-weight: theme("fontWeight.bold");
+  margin-top: 0; /* No top margin for the first heading typically */
+}
+
+h2 {
+  font-size: theme("fontSize.2xl"); /* Example: 1.5rem */
+}
+
+h3 {
+  font-size: theme("fontSize.xl"); /* Example: 1.25rem */
+}
+
+h4 {
+  font-size: theme("fontSize.lg"); /* Example: 1.125rem */
+}
+
+h5 {
+  font-size: theme("fontSize.base"); /* Example: 1rem */
+}
+
+h6 {
+  font-size: theme("fontSize.sm"); /* Example: 0.875rem */
+  font-weight: theme("fontWeight.medium");
+}
+
+/* --- Paragraphs --- */
+p {
+  margin-bottom: theme("spacing.4"); /* Example: 1rem */
+}
+
+/* --- Links --- */
+a {
+  color: theme("colors.primary.600"); /* Use primary color from theme */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; /* Smooth transition */
+}
+
+a:hover {
+  color: theme("colors.primary.700");
+  text-decoration: underline;
+}
+
+/* Ensure focus state is visually distinct for accessibility */
+a:focus {
+  outline: 2px solid transparent; /* Remove default outline */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px theme("colors.primary.300"); /* Custom focus ring using primary color */
+  border-radius: theme(
+    "borderRadius.sm"
+  ); /* Optional: slightly rounded focus ring */
+}
+
+/* --- Base HTML Element Styles End --- */
+
+/* --- Framework Imports --- */
+/* These MUST come AFTER your base styles to allow utility classes to override */
